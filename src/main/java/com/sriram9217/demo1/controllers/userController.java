@@ -65,4 +65,6 @@ public class userController { // Updated naming
 //            throw new UserNotFoundException("id: " + id);
         return resource;
     }
+
+
 }
