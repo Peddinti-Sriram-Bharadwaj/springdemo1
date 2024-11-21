@@ -1,13 +1,11 @@
 package com.sriram9217.demo1.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "app_user")
@@ -25,6 +23,10 @@ public class User
     {
 
     }
+
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
+
     public User(Integer id, String name, Date dob)
     {
         super();
@@ -56,6 +58,15 @@ public class User
     {
         this.dob = dob;
     }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
     @Override
     public String toString()
     {
