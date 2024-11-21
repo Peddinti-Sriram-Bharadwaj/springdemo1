@@ -1,12 +1,20 @@
 package com.sriram9217.demo1.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
 import java.util.Date;
 
+@Entity
+@Table(name = "app_user")
 public class User
 {
+    @Id
+    @GeneratedValue
     private Integer id;
     @Size(min=5, message="Name should have least 5 characters")
     private String name;
